@@ -1,23 +1,24 @@
 # Images 
 
 ## Activity-1
-ON
+**ON**
+![act1on](https://user-images.githubusercontent.com/89584933/133656842-d66bde2d-3c4b-4f6a-a85c-356999f0b7d1.PNG)
 
-
-OFF
-![act1off](https://user-images.githubusercontent.com/89584933/133656112-47767987-2c9d-4687-b8a2-ca9dd3569de8.png)
+**OFF**
+![act1off](https://user-images.githubusercontent.com/89584933/133656886-75893997-931c-4c4a-b8a4-e36f2541c772.png)
 
 
 ## Activity-2
-ON
-![act2on](https://user-images.githubusercontent.com/89584933/133656135-b060612b-1911-4b12-9b0b-b622abf2b921.png)
+**ON**
+![act2on](https://user-images.githubusercontent.com/89584933/133656952-36786237-0039-4a5f-b44a-8f953fe815ff.png)
 
-OFF
-![act2off](https://user-images.githubusercontent.com/89584933/133656181-fa46872e-1f9f-461b-a3fd-64188b5afa63.png)
+**OFF**
+![act2off](https://user-images.githubusercontent.com/89584933/133657301-94485c57-8a3a-4cf9-84ff-394c42cd6657.png)
+
 
 
 ## Activity-3
-ON
+**ON**
 
-OFF
+**OFF**
 
