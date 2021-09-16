@@ -4,3 +4,4 @@ In this case study the temperature of a seat is determined using **Embedded C** 
 
 ![image](https://user-images.githubusercontent.com/89584933/133662542-924f8591-0e4c-4b3d-bf72-e718b35caada.png)
 ![image](https://user-images.githubusercontent.com/89584933/133662616-0515549d-b793-433a-aa02-82a525182274.png)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c32667d0920749d6a7649eb4b67797d3)](https://www.codacy.com/gh/TupaakulaMonica/Embedded_C_CaseStudy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TupaakulaMonica/Embedded_C_CaseStudy&amp;utm_campaign=Badge_Grade)
