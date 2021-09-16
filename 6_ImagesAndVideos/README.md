@@ -19,6 +19,8 @@
 
 ## Activity-3
 **ON**
+![act3on](https://user-images.githubusercontent.com/89584933/133661618-cbe40cc1-1f5d-43bd-b68e-633909bde2de.png)
 
 **OFF**
+![act3off](https://user-images.githubusercontent.com/89584933/133661636-110dcba2-d696-4b01-a52c-c5485c818227.png)
 
