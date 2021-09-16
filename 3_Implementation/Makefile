@@ -1,77 +1,55 @@
-# Name of the project
-PROJECT_NAME = Calculator
+PROJ_NAME = Embedded_C
 
-# Output directory
-BUILD = build
+BUILD_DIR = Build
 
-# All source code files
-SRC = project_main.c\
-src/calculator_operations.c
+# All Source code files
+SRC = main.c\
+src/act1.c\
+src/act2.c\
+src/act3.c
 
-# All test source files
-TEST_SRC = src/calculator_operations.c\
-test/test_calculator_operations.c\
-unity/unity.c\
+# All header file paths
+INC = -I inc
 
-TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
+# Configuring for Both Windows and Linux Operating System
+ifdef OS	# Windwos OS
+# Correct the path based on OS
+   FixPath = $(subst /,\,$1)
+# AVR Compiler
+   CC = avr-gcc.exe
+# .elf to .hex
+   AVR_OBJ_CPY = avr-objcopy.exe
+else # Linux OS
+   ifeq ($(shell uname), Linux)
+# Correct the path based on Linux
+      FixPath = $1				
+# AVR Compiler
+	  CC = avr-gcc
+# N.elf to .hex
+	  AVR_OBJ_CPY = avr-objcopy 
+   endif
+endif
 
-# All include folders with header files
-INC	= -Iinc\
--Iunity\
+# Command to make to consider these names as targets and not as file names in folder
+.PHONY:all analysis clean doc
 
-#Library Inlcudes
-#INCLUDE_LIBS = 
-INCLUDE_LIBS = -lcunit
+all:$(BUILD_DIR)
+# Compile the code and generate the ELF file
+	$(CC) -g -Wall -Os -mmcu=atmega328  $(INC) $(SRC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
 
-# Project Output name
-PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
+$(BUILD_DIR):
+# Create directory to store the built files
+	mkdir $(BUILD_DIR)
 
-# Document files
-DOCUMENTATION_OUTPUT = documentation/html
+analysis: $(SRC)
+# Analyse the code using Cppcheck command line utility
+	cppcheck --enable=all $^
 
-# Default target built
-$(PROJECT_NAME):all
-
-# Run the target even if the matching name exists
-.PHONY: run clean test doc all
-
-all: $(SRC) $(BUILD)
-	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
-
-# Call `make run` to run the application
-run:$(PROJECT_NAME)
-	./$(PROJECT_OUTPUT).out
-
-# Document the code using Doxygen
 doc:
-	make -C ./documentation
+# Build the code code documentation using Doxygen command line utility
+	make -C documentation
 
-# Build and run the unit tests
-test:$(BUILD)
-	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
-	./$(TEST_OUTPUT)
-
-analyze: test memcheck staticcheck coverage sanitize_check
-
-staticcheck:
-	cppcheck --enable=all -iunity .
-
-memcheck:
-	valgrind ./$(TEST_OUTPUT)
-
-sanitize_check:
-	gcc -fsanitize=address -fno-omit-frame-pointer $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
-	./$(TEST_OUTPUT)
-
-coverage:$(TEST_SRC)
-	gcc -fprofile-arcs -ftest-coverage $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
-	./$(TEST_OUTPUT)
-	gcov -a calculator_operations.c
-
-# Remove all the built files, invoke by `make clean`
 clean:
-	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT) *.gcda *.gcno *.gcov
-
-# Create new build folder if not present
-$(BUILD):
-	mkdir build
+# Remove all the build files and generated document files
+	rm -rf $(call FixPath,$(BUILD_DIR)/*)
+	make -C documentation clean
