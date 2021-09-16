@@ -1,7 +1,5 @@
 # Requirements
 
-* Capture all the requirements wrt system, module, interface, integration, testing, Functional and Non-functional
-* Captures Basic Planning of the project through - Sample Gantt Chart attached
-
-* Tools: MS Excel, MS word or Similar
+## Introduction
+The case study is about Embedded Systems, Arduino atmega328 microcontroller is used. Here the case study is divided into three differnt activities, where the button sensor 
 
